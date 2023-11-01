@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   title = 'weatherApp';
 
   public weather?: WeatherCity;
+  public classCard:boolean = false
 
   constructor (private weatherService: WeatherService) {}
 
@@ -20,5 +21,9 @@ export class AppComponent implements OnInit {
         this.weather = data;
         console.log(this.weather)
       })
+  }
+
+  test():void {
+    this.classCard = !this.classCard
   }
 }

@@ -24,3 +24,13 @@
 ?Crear los SVG para los iconos de los distintos climas
 
   -->
+<header></header>
+<main>
+  <div class="card-weather" [ngClass]="{
+    'active': classCard
+  }">
+    <app-input-search></app-input-search>
+  </div>
+  <button (click)="test()">Agrandar</button>
+</main>
+<footer></footer>
