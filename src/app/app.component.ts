@@ -23,7 +23,8 @@ export class AppComponent implements OnInit {
       })
   }
 
-  test():void {
-    this.classCard = !this.classCard
+  showCard(value: boolean):void {
+    this.classCard = value;
   }
+
 }
