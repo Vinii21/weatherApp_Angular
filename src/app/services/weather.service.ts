@@ -8,7 +8,9 @@ import { environments } from 'src/environments/environments';
 export class WeatherService {
   constructor(private http: HttpClient) { }
 
-  getWeatherByCity():Observable<WeatherCity> {
-    return this.http.get<WeatherCity>(`https://api.openweathermap.org/data/2.5/weather?q=germany&appid=${environments.API_KEY}`);
+  public weatherData?: WeatherCity;
+
+  getWeatherByCity(city: string):Observable<WeatherCity> {
+    return this.http.get<WeatherCity>(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${environments.API_KEY}`);
   }
 }

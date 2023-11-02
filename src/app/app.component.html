@@ -26,10 +26,16 @@
   -->
 <header></header>
 <main>
+
   <div class="card-weather" [ngClass]="{
     'active': classCard
   }">
     <app-input-search (classCard)="showCard($event)" ></app-input-search>
+    <h1 class="title" [ngClass]="{
+      'show': showText,
+      'noShow': !showText
+    }">Texto</h1>
   </div>
+
 </main>
 <footer></footer>

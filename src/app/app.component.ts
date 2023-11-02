@@ -7,24 +7,23 @@ import { WeatherCity } from './interfaces/weather-city.interface';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  title = 'weatherApp';
+export class AppComponent {
 
   public weather?: WeatherCity;
-  public classCard:boolean = false
+  public classCard:boolean = false;
+  public showText: boolean = false;
 
   constructor (private weatherService: WeatherService) {}
 
-  ngOnInit(): void {
-    this.weatherService.getWeatherByCity()
-      .subscribe((data)=>{
-        this.weather = data;
-        console.log(this.weather)
-      })
-  }
-
   showCard(value: boolean):void {
     this.classCard = value;
+    this.showText = !this.showText
+    if(this.classCard) {
+      setTimeout(()=>{
+        console.log(this.weatherService.weatherData)
+        this.weather = this.weatherService.weatherData
+      },500)
+    }
   }
 
 }
