@@ -20,7 +20,6 @@ export class AppComponent {
     this.showText = !this.showText
     if(this.classCard) {
       setTimeout(()=>{
-        console.log(this.weatherService.weatherData)
         this.weather = this.weatherService.weatherData
       },500)
     }

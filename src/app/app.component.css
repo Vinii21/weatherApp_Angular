@@ -29,7 +29,6 @@ main{
 .title{
   color: #fff;
   transition: .5s all ease;
-  display: none;
 }
 .show{
   opacity: 1;
