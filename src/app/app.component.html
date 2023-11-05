@@ -31,16 +31,40 @@
     'active': classCard
   }">
     <app-input-search (classCard)="showCard($event)" ></app-input-search>
-    <h1 class="title" [ngClass]="{
+    <div class="container-info" [ngClass]="{
       'show': showText,
       'noShow': !showText
-    }">Texto</h1>
-    <img class="title" [ngClass]="{
-      'show': showText,
-      'noShow': !showText
-    }" src="../assets/clear.png" width="100"/>
+    }">
+      <div class="card-detail">
+        <img [src]="url" width="100"/>
+        <h1>{{ weather?.main?.temp | celcius }} <span>°c</span></h1>
+        <span class="span">{{description | titlecase}}</span>
+      </div>
+      <div class="card-info">
+        <div>
+          <img src="../assets/humedad.png" alt="Símbolo de humedad" width="30">
+          <p>
+            {{weather?.main?.humidity}}% <br>
+            Humidity
+          </p>
+        </div>
+        <div>
+          <img src="../assets/viento.png" alt="Símbolo de humedad" width="30">
+          <p>
+            {{weather?.wind?.speed}}Km/h <br>
+            Wind Speed
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 
 
 </main>
 <footer></footer>
+
+<!--
+  TODO: Establecer los derechos en el footer
+  <a href="https://www.flaticon.es/iconos-gratis/humedad" title="humedad iconos">Humedad iconos creados por Those Icons - Flaticon</a>
+  <a href="https://www.flaticon.es/iconos-gratis/viento" title="viento iconos">Viento iconos creados por QudaDesign - Flaticon</a>
+ -->

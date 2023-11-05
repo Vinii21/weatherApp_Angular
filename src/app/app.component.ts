@@ -10,18 +10,25 @@ import { WeatherCity } from './interfaces/weather-city.interface';
 export class AppComponent {
 
   public weather?: WeatherCity;
+  public description?: string;
+  public celcius?: number;
   public classCard:boolean = false;
   public showText: boolean = false;
+  public url: string = ""
 
   constructor (private weatherService: WeatherService) {}
 
   showCard(value: boolean):void {
     this.classCard = value;
-    this.showText = !this.showText
     if(this.classCard) {
       setTimeout(()=>{
-        this.weather = this.weatherService.weatherData
-      },500)
+        this.showText = true;
+        this.weather = this.weatherService.weatherData;
+        this.description = this.weather?.weather[0].description;
+        this.url = this.weatherService.icons[0]
+      },1000)
+    } else {
+      this.showText = false;
     }
   }
 

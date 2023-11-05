@@ -13,6 +13,7 @@ export class InputSearchComponent {
 
   @Output()
   public classCard: EventEmitter<boolean> = new EventEmitter();
+
   private activateClassCard: boolean = false;
 
   constructor (private weatherService: WeatherService) {};

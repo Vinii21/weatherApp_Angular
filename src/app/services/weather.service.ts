@@ -9,6 +9,7 @@ export class WeatherService {
   constructor(private http: HttpClient) { }
 
   public weatherData?: WeatherCity;
+  public icons = ["../assets/clear.png"]
 
   getWeatherByCity(city: string):Observable<WeatherCity> {
     return this.http.get<WeatherCity>(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${environments.API_KEY}`);
