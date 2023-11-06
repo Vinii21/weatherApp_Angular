@@ -18,5 +18,6 @@ export class ClearIconComponent {
     `${this.path}mist.png`,
     `${this.path}rain.png`,
     `${this.path}snow.png`,
+    `${this.path}404.png`,
   ]
 }

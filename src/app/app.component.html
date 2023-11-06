@@ -1,46 +1,24 @@
 <!--
   TODO: crear un encabezado ligero, un h1 con un título y algún icono
  -->
-<!--
-   TODO: Crear caja principal.
-   !Será un div con un input para buscar las ciudades
-   *Componente de input
-   *Componente para body del card del clima
-   *Componente para el footer del card del clima
--->
-<!--
-  TODO: crear un footer ligero con:
-  ?1-¿Quíen hizo el proyecto?
-  ?2-Fecha del proyecto
-  ?3-Atribuciones de autoría si corresponde
- -->
 
- <!-- ////////////////////////////////////////// -->
- <!--
-
-?Se debe crear un servicio para traer los datos de la API del clima
-?Configurar los environments para la APIKey
-?El efecto Debounce para el input
-?Crear los SVG para los iconos de los distintos climas
-
-  -->
 <header></header>
 <main>
 
   <div class="card-weather" [ngClass]="{
     'active': classCard
   }">
-    <app-input-search (classCard)="showCard($event)" ></app-input-search>
-    <div class="container-info" [ngClass]="{
+    <app-input-search (classCard)="showCard($event)" (weatherDataState)="weatherDataState($event)" ></app-input-search>
+    <div *ngIf="!loading" class="container-info" [ngClass]="{
       'show': showText,
       'noShow': !showText
     }">
       <div class="card-detail">
         <app-clear-icon [icon]="icon"></app-clear-icon>
-        <h1>{{ weather?.main?.temp | celcius }} <span>°c</span></h1>
+        <h1 *ngIf="weather" >{{ weather?.main?.temp | celcius }} <span>°c</span></h1>
         <span class="span">{{description | titlecase}}</span>
       </div>
-      <div class="card-info">
+      <div *ngIf="weather" class="card-info">
         <div>
           <img src="../assets/humedad.png" alt="Símbolo de humedad" width="30">
           <p>
@@ -57,9 +35,7 @@
         </div>
       </div>
     </div>
-<!--     <ng-template #error404>
-      <app-card-error [active]="classCard"></app-card-error>
-    </ng-template> -->
+    <app-card-error *ngIf="loading" [active]="showText"></app-card-error>
   </div>
 
 

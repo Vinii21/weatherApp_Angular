@@ -1,6 +1,7 @@
 .show{
   opacity: 1;
   transform: scale(1);
+  transition: 1s all ease;
 }
 .noShow{
   opacity: 0;

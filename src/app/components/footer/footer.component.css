@@ -1,9 +1,12 @@
 .footer {
-  width: 100%;
+  width: 95%;
   text-align: center;
+  display: flex;
+  justify-content: flex-end;
 }
 .footer .info {
   font-size: 16px;
+  color: #fff;
 }
 .flag{
   position: relative;

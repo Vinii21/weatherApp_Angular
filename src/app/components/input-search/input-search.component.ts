@@ -1,4 +1,6 @@
 import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { catchError } from 'rxjs';
+import { WeatherCity } from 'src/app/interfaces/weather-city.interface';
 import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
@@ -13,6 +15,8 @@ export class InputSearchComponent {
 
   @Output()
   public classCard: EventEmitter<boolean> = new EventEmitter();
+  @Output()
+  public weatherDataState: EventEmitter<boolean> = new EventEmitter();
 
   private activateClassCard: boolean = false;
   private cityName: string = "";
@@ -22,7 +26,14 @@ export class InputSearchComponent {
   getWeatherCity():void {
     const nameCity = this.tagInput.nativeElement.value;
     this.weatherService.getWeatherByCity(nameCity)
-    .subscribe((data)=>{
+    .pipe(
+      catchError( (error) =>{
+        this.weatherDataState.emit(true)
+        return [];
+      })
+    )
+    .subscribe((data) =>{
+      this.weatherDataState.emit(false)
       this.weatherService.weatherData = data;
     })
   };
