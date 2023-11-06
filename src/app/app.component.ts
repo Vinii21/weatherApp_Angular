@@ -14,7 +14,7 @@ export class AppComponent {
   public celcius?: number;
   public classCard:boolean = false;
   public showText: boolean = false;
-  public url: string = ""
+  public icon: number = 0;
 
   constructor (private weatherService: WeatherService) {}
 
@@ -23,13 +23,21 @@ export class AppComponent {
     if(this.classCard) {
       setTimeout(()=>{
         this.showText = true;
-        this.weather = this.weatherService.weatherData;
-        this.description = this.weather?.weather[0].description;
-        this.url = this.weatherService.icons[0]
+        this.getData()
       },1000)
     } else {
       this.showText = false;
     }
   }
 
+  getData():void {
+    this.weather = this.weatherService.weatherData;
+    this.description = this.weather?.weather[0].description;
+    const weatherMain = this.weather?.weather[0].main;
+    if(weatherMain === "Clear") {this.icon = 0};
+    if(weatherMain === "Thunderstorm") {this.icon = 4};
+    if(weatherMain === "Rain") {this.icon = 3};
+    if(weatherMain === "Clouds") {this.icon = 1};
+    console.log(this.weather)
+  }
 }

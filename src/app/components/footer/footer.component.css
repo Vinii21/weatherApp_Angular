@@ -1,0 +1,13 @@
+.footer {
+  width: 100%;
+  text-align: center;
+}
+.footer .info {
+  font-size: 16px;
+}
+.flag{
+  position: relative;
+  top: 5px;
+  left: 5px;
+  font-size: 25px;
+}

@@ -36,7 +36,7 @@
       'noShow': !showText
     }">
       <div class="card-detail">
-        <img [src]="url" width="100"/>
+        <app-clear-icon [icon]="icon"></app-clear-icon>
         <h1>{{ weather?.main?.temp | celcius }} <span>°c</span></h1>
         <span class="span">{{description | titlecase}}</span>
       </div>
@@ -57,14 +57,17 @@
         </div>
       </div>
     </div>
+<!--     <ng-template #error404>
+      <app-card-error [active]="classCard"></app-card-error>
+    </ng-template> -->
   </div>
 
 
 </main>
-<footer></footer>
+<app-footer></app-footer>
 
 <!--
   TODO: Establecer los derechos en el footer
   <a href="https://www.flaticon.es/iconos-gratis/humedad" title="humedad iconos">Humedad iconos creados por Those Icons - Flaticon</a>
   <a href="https://www.flaticon.es/iconos-gratis/viento" title="viento iconos">Viento iconos creados por QudaDesign - Flaticon</a>
- -->
+-->
