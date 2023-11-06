@@ -10,6 +10,7 @@ import { CelciusPipe } from './pipes/celcius.pipe';
 import { FooterComponent } from './components/footer/footer.component';
 import { CardErrorComponent } from './components/card-error/card-error.component';
 import { ClearIconComponent } from './components/clear-icon/clear-icon.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ClearIconComponent } from './components/clear-icon/clear-icon.component
     CelciusPipe,
     FooterComponent,
     CardErrorComponent,
-    ClearIconComponent
+    ClearIconComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

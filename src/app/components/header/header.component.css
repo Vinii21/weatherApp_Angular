@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  height: 100px;
+  width: 100%;
+}
+
+h1{
+  font-size: 30px;
+  color: #fff;
+  position: relative;
+  top: 15px;
+  left: 10px;
+}

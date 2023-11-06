@@ -1,8 +1,4 @@
-<!--
-  TODO: crear un encabezado ligero, un h1 con un título y algún icono
- -->
-
-<header></header>
+<app-header></app-header>
 <main>
 
   <div class="card-weather" [ngClass]="{
@@ -15,10 +11,10 @@
     }">
       <div class="card-detail">
         <app-clear-icon [icon]="icon"></app-clear-icon>
-        <h1 *ngIf="weather" >{{ weather?.main?.temp | celcius }} <span>°c</span></h1>
+        <h1>{{ weather?.main?.temp | celcius }} <span>°c</span></h1>
         <span class="span">{{description | titlecase}}</span>
       </div>
-      <div *ngIf="weather" class="card-info">
+      <div class="card-info">
         <div>
           <img src="../assets/humedad.png" alt="Símbolo de humedad" width="30">
           <p>
@@ -41,9 +37,3 @@
 
 </main>
 <app-footer></app-footer>
-
-<!--
-  TODO: Establecer los derechos en el footer
-  <a href="https://www.flaticon.es/iconos-gratis/humedad" title="humedad iconos">Humedad iconos creados por Those Icons - Flaticon</a>
-  <a href="https://www.flaticon.es/iconos-gratis/viento" title="viento iconos">Viento iconos creados por QudaDesign - Flaticon</a>
--->
